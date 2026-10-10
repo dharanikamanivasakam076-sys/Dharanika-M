@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dharanika M | Electronics and Communication Engineering Student</title>
+<meta name="description" content="Portfolio of Dharanika M, a B.E. Electronics and Communication Engineering student at M. Kumarasamy College of Engineering, Karur. Projects, skills and interests in embedded systems and IoT.">
+<meta name="theme-color" content="#ecebe5">
+<meta property="og:title" content="Dharanika M | ECE Student Portfolio">
+<meta property="og:description" content="Electronics and Communication Engineering student exploring embedded systems, IoT and communication technologies.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ecebe5; --ink:#0d0f14; --navy:#14214d; --lav:#d9d4f5; --lav-soft:#efecfb;
+  --card:#ffffff; --muted:#555a68; --line:rgba(13,15,20,.12);
+  --radius:24px; --shadow:0 10px 30px -12px rgba(20,33,77,.25);
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --display:'Inter Tight','Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;z-index:100}
+.skip:focus{left:12px}
+.icon{width:1.1em;height:1.1em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+
+/* Nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:18px 0;transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(236,235,229,.85);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--display);font-weight:600;font-size:1.9rem;letter-spacing:-.04em;line-height:1}
+.logo sup{font-size:.55em;vertical-align:top;margin-left:1px}
+.links{display:flex;gap:30px;font-family:var(--serif);font-size:1.25rem}
+.links a{position:relative;padding:4px 0}
+.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.links a:hover::after,.links a.active::after{transform:scaleX(1)}
+.pill{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:12px 22px;font-weight:500;font-size:.95rem;box-shadow:var(--shadow);transition:transform .25s,background .25s,color .25s}
+.pill:hover{transform:translateY(-2px);background:var(--ink);color:#fff}
+.pill.dark{background:var(--ink);color:#fff}
+.pill.dark:hover{background:var(--navy)}
+.pill.ghost{background:transparent;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.pill.ghost:hover{background:var(--ink);color:#fff}
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;background:#fff;align-items:center;justify-content:center}
+.nav-right{display:flex;align-items:center;gap:10px}
+
+/* Hero */
+.hero{position:relative;min-height:max(100svh,860px);overflow:hidden}
+.bigname{position:absolute;left:0;right:0;top:19%;text-align:center;font-family:var(--display);font-weight:900;font-size:clamp(3.4rem,17.5vw,17rem);letter-spacing:-.06em;line-height:.9;white-space:nowrap;color:var(--ink);z-index:1;user-select:none}
+.portrait{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:82%;width:min(46vw,620px);z-index:2;display:flex;align-items:flex-end;justify-content:center}
+.portrait img{height:100%;width:100%;object-fit:contain;object-position:bottom;filter:grayscale(1) contrast(1.08);-webkit-mask-image:linear-gradient(#000 88%,transparent);mask-image:linear-gradient(#000 88%,transparent)}
+.portrait-ph{display:none;height:92%;width:100%;align-items:flex-end;justify-content:center;text-align:center}
+.portrait-ph.show{display:flex}
+.portrait-ph div{width:78%;height:100%;border-radius:200px 200px 0 0;background:linear-gradient(180deg,#222633,#0d0f14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#cfd2e0;padding:20px;font-size:.85rem}
+.portrait-ph svg{width:90px;height:90px;stroke:#cfd2e0}
+.portrait-ph code{background:rgba(255,255,255,.12);padding:2px 8px;border-radius:6px}
+.hero-left{position:absolute;left:max(24px,calc((100vw - 1200px)/2));bottom:48px;width:min(340px,28vw);z-index:3}
+.hero-left .hi{font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.1}
+.hero-left .role{font-weight:600;font-size:.95rem;margin:8px 0 10px;letter-spacing:-.01em}
+.hero-left p.intro{font-family:var(--serif);font-size:1.1rem;line-height:1.35;color:#2b2f3a}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.cta .pill{padding:10px 16px;font-size:.85rem}
+.hero-right{position:absolute;right:max(24px,calc((100vw - 1200px)/2));top:150px;text-align:right;font-family:var(--serif);font-size:1.25rem;line-height:1.5;z-index:3}
+.status{position:absolute;right:max(24px,calc((100vw - 1200px)/2));bottom:56px;z-index:3;display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:10px 18px;font-size:.85rem;font-weight:500;box-shadow:var(--shadow)}
+.dot{width:9px;height:9px;border-radius:50%;background:#2fb27a;box-shadow:0 0 0 4px rgba(47,178,122,.2)}
+
+/* Sections */
+section.block{padding:110px 0}
+.eyebrow{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--navy)}
+h2.title{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,5.5vw,4.2rem);letter-spacing:-.04em;line-height:1;margin:6px 0 40px}
+.grid{display:grid;gap:20px}
+.card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid var(--line);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px)}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+.about p{font-size:1.08rem;color:#2b2f3a;margin-bottom:18px}
+.info{display:grid;gap:14px}
+.info .card{display:flex;gap:16px;align-items:center;padding:20px 22px}
+.ic{width:46px;height:46px;border-radius:14px;background:var(--lav);color:var(--navy);display:grid;place-items:center;font-size:1.3rem;flex:none}
+.info small,.label{display:block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.info strong{font-weight:600;line-height:1.3}
+.timeline{position:relative;display:grid;gap:22px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--lav)}
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:-33px;top:32px;width:16px;height:16px;border-radius:50%;background:var(--navy);box-shadow:0 0 0 5px var(--lav)}
+.tl h3{font-family:var(--display);font-size:1.5rem;letter-spacing:-.02em}
+.tl .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--lav-soft);font-size:.82rem;font-weight:500;color:var(--navy)}
+.chip.ph{background:transparent;border:1.5px dashed rgba(20,33,77,.4);color:var(--muted)}
+.chip.ok{background:#e1f4ea;color:#14633f}
+.skills{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.skills h3{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:1.15rem;margin-bottom:18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.note{margin-top:22px;font-size:.88rem;color:var(--muted);font-family:var(--serif);font-style:italic;font-size:1.05rem}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.filters button{padding:10px 20px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:500;font-size:.9rem;transition:.25s}
+.filters button:hover{border-color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.projects{grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
+.proj{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.proj .art{height:190px;background:linear-gradient(135deg,var(--navy),#2b3a7a 60%,var(--lav));display:grid;place-items:center;color:#fff}
+.proj .art.alt{background:linear-gradient(135deg,#d9d4f5,#efecfb);color:var(--navy)}
+.proj .art svg{width:84px;height:84px;stroke-width:1.2}
+.proj .body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.proj h3{font-family:var(--display);font-size:1.3rem;letter-spacing:-.02em;line-height:1.2}
+.proj p{color:var(--muted);font-size:.95rem;flex:1}
+.proj .btn-d{align-self:flex-start}
+.ach-empty{text-align:center;padding:56px 28px;background:var(--lav-soft);border:1.5px dashed rgba(20,33,77,.35);border-radius:var(--radius);font-family:var(--serif);font-size:1.6rem;color:var(--navy)}
+.ach-list{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.interests{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.interests .card{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;font-weight:600;font-family:var(--display)}
+.interests .ic{width:56px;height:56px;border-radius:50%}
+.resume{background:var(--ink);color:#fff;border-radius:32px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+.resume h3{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-.03em;line-height:1.05}
+.resume .sub{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--lav);margin:6px 0 18px}
+.resume p{color:#c9ccd8}
+.resume .cols{display:grid;gap:18px}
+.resume .cols div{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.07)}
+.resume .label{color:#9aa0b5;margin-bottom:6px}
+.resume .btn-row{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:26px}
+.pill[aria-disabled="true"]{opacity:.65;cursor:not-allowed}
+.hint{font-size:.85rem;color:#9aa0b5}
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:48px}
+.contact p.lead{font-size:1.1rem;color:#2b2f3a;margin-bottom:26px}
+.clist{display:grid;gap:12px}
+.clist .card{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:18px}
+.clist .val{font-weight:500;word-break:break-all}
+.clist .val.empty{color:var(--muted);font-style:italic;font-weight:400}
+form.card{display:grid;gap:16px}
+.f{display:grid;gap:6px}
+.f label{font-size:.85rem;font-weight:600}
+.f input,.f textarea{width:100%;font:inherit;padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);transition:border-color .2s}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--navy);background:#fff}
+.f textarea{min-height:140px;resize:vertical}
+.f .err{color:#b3261e;font-size:.8rem;min-height:1em}
+.f.invalid input,.f.invalid textarea{border-color:#b3261e}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.status-msg{padding:12px 16px;border-radius:14px;font-size:.92rem;display:none}
+.status-msg.show{display:block}
+.status-msg.ok{background:#e1f4ea;color:#14633f}
+.status-msg.bad{background:#fde7e5;color:#8c1d18}
+.status-msg.info{background:var(--lav-soft);color:var(--navy)}
+footer{background:var(--ink);color:#fff;padding:64px 0 32px;margin-top:40px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot h4{font-family:var(--display);font-size:2rem;letter-spacing:-.04em}
+.foot p,.foot a{color:#b9bdcc}
+.foot a:hover{color:#fff}
+.foot ul{list-style:none;display:grid;gap:8px}
+.foot .label{color:#8a90a6;margin-bottom:12px}
+.copy{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#8a90a6;font-size:.88rem}
+.totop{display:inline-flex;align-items:center;gap:8px;color:#fff;background:rgba(255,255,255,.1);padding:10px 18px;border-radius:999px}
+.totop:hover{background:rgba(255,255,255,.2)}
+
+/* Modal */
+dialog{border:0;border-radius:28px;padding:0;width:min(640px,calc(100% - 32px));background:var(--card);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(13,15,20,.55);backdrop-filter:blur(4px)}
+.m-body{padding:34px;display:grid;gap:16px}
+.m-body h3{font-family:var(--display);font-size:1.8rem;letter-spacing:-.03em;line-height:1.1;padding-right:40px}
+.m-body ul{list-style:none;display:grid;gap:10px}
+.m-body li{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;padding:12px 14px;border-radius:14px;background:var(--bg);font-size:.95rem}
+.m-close{position:absolute;right:18px;top:18px;width:42px;height:42px;border-radius:50%;background:var(--bg);display:grid;place-items:center}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* Responsive */
+@media (max-width:1000px){
+  .links{display:none}
+  .menu-btn{display:inline-flex}
+  .links.open{display:flex;position:absolute;top:70px;left:24px;right:24px;flex-direction:column;gap:6px;background:#fff;padding:18px;border-radius:24px;box-shadow:var(--shadow);font-size:1.5rem}
+  .links.open a{padding:8px 4px}
+  .nav-right .pill{display:none}
+  .hero{min-height:auto;padding-top:110px;display:flex;flex-direction:column}
+  .bigname{position:relative;top:auto;order:1;font-size:19vw}
+  .portrait{position:relative;left:auto;transform:none;order:2;height:min(95vw,520px);width:100%;margin:-4vw auto 0}
+  .hero-right{position:relative;top:auto;right:auto;order:0;text-align:left;padding:0 24px 14px;font-size:1.15rem}
+  .hero-left{position:relative;left:auto;bottom:auto;order:3;width:auto;padding:28px 24px 18px;background:var(--bg)}
+  .status{position:relative;right:auto;bottom:auto;order:4;margin:0 24px 40px;align-self:flex-start}
+  .about,.contact,.resume,.foot{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  section.block{padding:80px 0}
+  .two{grid-template-columns:1fr}
+  .wrap{width:min(1200px,100% - 36px)}
+  .m-body{padding:26px 22px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#home" class="logo" aria-label="Dharanika M, home">DM<sup>*</sup></a>
+    <nav class="links" id="links" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="pill js-resume" href="#resume">Download Resume <svg class="icon" viewBox="0 0 24 24" data-icon="arrow"></svg></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="links"><svg class="icon" viewBox="0 0 24 24" data-icon="menu"></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="home" aria-label="Introduction">
+  <div class="hero-right" aria-label="Focus areas">
+    <div>Electronics</div><div>Embedded Systems</div><div>IoT &amp; Communication</div>
+  </div>
+  <h1 class="bigname" aria-label="Dharanika M">Dharanika</h1>
+  <div class="portrait">
+    <!-- Replace assets/profile.png with your photo (a transparent cutout PNG gives the best overlap effect) -->
+    <img id="portraitImg" src="assets/profile.png" alt="Portrait of Dharanika M" width="620" height="760" fetchpriority="high">
+    <div class="portrait-ph" id="portraitPh" role="img" aria-label="Photo placeholder">
+      <div><svg viewBox="0 0 24 24" class="icon" data-icon="user"></svg><strong>Add your photo</strong><span>Save it as <code>assets/profile.png</code></span></div>
+    </div>
+  </div>
+  <div class="hero-left">
+    <p class="hi">Hi, I'm Dharanika M</p>
+    <p class="role">Electronics and Communication Engineering Student</p>
+    <p class="intro">I am passionate about learning new technologies, exploring electronics and communication systems, and developing innovative solutions through engineering projects. I am continuously working to improve my technical knowledge, creativity, and problem-solving skills.</p>
+    <div class="cta">
+      <a class="pill dark" href="#projects">Explore My Work <svg class="icon" viewBox="0 0 24 24" data-icon="arrow"></svg></a>
+      <a class="pill" href="#about">About Me</a>
+      <a class="pill ghost js-resume" href="#resume">Download Resume</a>
+    </div>
+  </div>
+  <div class="status"><span class="dot" aria-hidden="true"></span><span id="statusLabel">Open to Learning Opportunities</span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="block" id="about">
+  <div class="wrap about">
+    <div class="reveal">
+      <p class="eyebrow">About</p>
+      <h2 class="title">About Me</h2>
+      <p>I am Dharanika M, an undergraduate student pursuing a B.E. in Electronics and Communication Engineering at M. Kumarasamy College of Engineering, Karur. My academic background has encouraged me to explore electronics, communication technologies, embedded systems, and emerging engineering solutions.</p>
+      <p>I enjoy learning new concepts, developing my technical abilities, and applying theoretical knowledge to practical projects. My goal is to continue learning, gain industry experience, and contribute to meaningful technological innovations.</p>
+    </div>
+    <div class="info reveal">
+      <div class="card"><span class="ic"><svg class="icon" viewBox="0 0 24 24" data-icon="cap"></svg></span><div><small>Education</small><strong>B.E. – Electronics and Communication Engineering</strong></div></div>
+      <div class="card"><span class="ic"><svg class="icon" viewBox="0 0 24 24" data-icon="building"></svg></span><div><small>College</small><strong>M. Kumarasamy College of Engineering</strong></div></div>
+      <div class="card"><span class="ic"><svg class="icon" viewBox="0 0 24 24" data-icon="pin"></svg></span><div><small>Location</small><strong>Namakkal, Tamil Nadu</strong></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="block" id="education">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Journey</p><h2 class="title">Education</h2></div>
+    <div class="timeline">
+      <article class="tl card reveal">
+        <span class="label">Current Education</span>
+        <h3>Bachelor of Engineering (B.E.)</h3>
+        <p>Electronics and Communication Engineering</p>
+        <p>M. Kumarasamy College of Engineering, Karur</p>
+        <div class="meta"><span class="chip ok">Currently pursuing</span><span class="chip ph" data-edit="gradYear">[Add expected graduation year]</span><span class="chip ph" data-edit="cgpa">[Add CGPA / percentage]</span></div>
+      </article>
+      <article class="tl card reveal">
+        <span class="label">School Education</span>
+        <h3>Government Model Girls Higher Secondary School</h3>
+        <p>Namakkal</p>
+        <div class="meta"><span class="chip ok">Completed</span><span class="chip ph" data-edit="schoolYear">[Add completion year]</span><span class="chip ph" data-edit="schoolPct">[Add percentage]</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Toolkit</p><h2 class="title">Technical Skills</h2></div>
+    <div class="grid skills" id="skillsGrid"></div>
+    <p class="note reveal">These are editable skill suggestions. Proficiency levels will be added once confirmed.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Selected work</p><h2 class="title">Projects</h2></div>
+    <div class="filters reveal" id="filters" role="group" aria-label="Filter projects"></div>
+    <div class="grid projects" id="projectGrid" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="block" id="achievements">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Milestones</p><h2 class="title">Achievements &amp; Certifications</h2></div>
+    <div id="achWrap" class="reveal"></div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="block" id="interests">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Curiosity</p><h2 class="title">Interests</h2></div>
+    <div class="grid interests" id="interestGrid"></div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section class="block" id="resume">
+  <div class="wrap">
+    <div class="resume reveal">
+      <div>
+        <p class="label" style="color:#9aa0b5">Resume</p>
+        <h3>Dharanika M</h3>
+        <p class="sub">Electronics and Communication Engineering</p>
+        <p>Motivated ECE undergraduate with interests in embedded systems, IoT and communication technologies, seeking opportunities to learn, build projects and grow professionally.</p>
+        <div class="btn-row">
+          <a class="pill" id="resumeBtn" href="#resume">Download Resume <svg class="icon" viewBox="0 0 24 24" data-icon="download"></svg></a>
+          <span class="hint" id="resumeHint"></span>
+        </div>
+      </div>
+      <div class="cols">
+        <div><span class="label">Education</span>B.E. ECE, M. Kumarasamy College of Engineering, Karur</div>
+        <div><span class="label">Skills</span><span id="resumeSkills"></span></div>
+        <div><span class="label">Projects</span><span id="resumeProjects"></span></div>
+        <div><span class="label">Certifications &amp; Achievements</span><span id="resumeAch"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block" id="contact">
+  <div class="wrap contact">
+    <div class="reveal">
+      <p class="eyebrow">Contact</p>
+      <h2 class="title">Let's Connect!</h2>
+      <p class="lead">I am always interested in learning, collaborating on engineering projects, and exploring opportunities that help me grow professionally.</p>
+      <div class="clist" id="contactList"></div>
+    </div>
+    <form class="card reveal" id="contactForm" novalidate>
+      <div class="two">
+        <div class="f"><label for="cName">Name</label><input id="cName" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+        <div class="f"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+      </div>
+      <div class="f"><label for="cSubject">Subject</label><input id="cSubject" name="subject" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="cMsg">Message</label><textarea id="cMsg" name="message" required></textarea><span class="err" aria-live="polite"></span></div>
+      <button class="pill dark" type="submit" id="sendBtn" style="justify-self:start">Send Message <svg class="icon" viewBox="0 0 24 24" data-icon="arrow"></svg></button>
+      <div class="status-msg" id="formStatus" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><h4>Dharanika M</h4><p>Electronics and Communication Engineering Student</p></div>
+      <div><p class="label">Quick links</p><ul>
+        <li><a href="#about">About Me</a></li><li><a href="#education">Education</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><p class="label">Social</p><ul id="footSocial"></ul></div>
+    </div>
+    <div class="copy">
+      <span>© <span id="year"></span> Dharanika M. All rights reserved.</span>
+      <a class="totop" href="#home">Back to Top <svg class="icon" viewBox="0 0 24 24" data-icon="up"></svg></a>
+    </div>
+  </div>
+</footer>
+
+<dialog id="projDialog" aria-labelledby="dTitle">
+  <button class="m-close" id="dClose" aria-label="Close details"><svg class="icon" viewBox="0 0 24 24" data-icon="x"></svg></button>
+  <div class="m-body" id="dBody"></div>
+</dialog>
+
+<script>
+/* =========================================================
+   EDIT YOUR DETAILS HERE – no need to touch the HTML above
+   ========================================================= */
+const CONFIG = {
+  statusLabel: "Open to Learning Opportunities",
+  email: "",        // e.g. "you@example.com"
+  linkedin: "",     // e.g. "https://www.linkedin.com/in/your-id"
+  github: "",       // e.g. "https://github.com/your-id"
+  phone: "",        // optional, e.g. "+91 00000 00000"
+  resumeUrl: "",    // e.g. "assets/Dharanika_M_Resume.pdf" (put the PDF in the assets folder)
+  formEndpoint: ""  // e.g. a Formspree URL: "https://formspree.io/f/xxxxxxx"
+};
+
+const DATA = {
+  skills: [
+    { title: "Electronics and Engineering", icon: "cpu", items: ["Basic Electronics","Electronic Circuits","Communication Systems","Signals and Systems"] },
+    { title: "Programming and Software", icon: "code", items: ["C Programming","Python","HTML","CSS","JavaScript"] },
+    { title: "Hardware and Embedded Systems", icon: "chip", items: ["ESP32","IoT Fundamentals","Sensors and Instrumentation","Microcontrollers"] },
+    { title: "Professional Skills", icon: "users", items: ["Communication","Teamwork","Problem-Solving","Time Management","Willingness to Learn"] }
+  ],
+  projects: [
+    { id: "iv", title: "IoT-Based IV Fluid Monitoring System",
+      desc: "An IoT-based monitoring concept designed to measure the quantity of IV fluid remaining in a bottle and help healthcare staff monitor fluid levels more conveniently.",
+      tags: ["ESP32","Load Cell","HX711 Amplifier Module","Sensors","IoT Monitoring"],
+      categories: ["electronics","embedded","iot"], icon: "drop",
+      link: "",
+      features: [
+        { text: "Measurement of fluid weight using a load cell.", done: false },
+        { text: "Conversion of sensor signals through the HX711 module.", done: false },
+        { text: "Processing of measurement data using the ESP32.", done: false },
+        { text: "Monitoring and alert functionality.", done: false }
+      ],
+      note: "Academic concept project. Features marked 'To confirm' will be shown as completed once verified. No clinical validation or hospital deployment is claimed." },
+    { id: "p2", title: "[Add Project Name]", desc: "[Add Project Description]", tags: ["[Add Technologies]"], categories: ["electronics"], icon: "board", alt: true, link: "", features: [], placeholder: true },
+    { id: "p3", title: "[Add Project Name]", desc: "[Add Project Description]", tags: ["[Add Technologies]"], categories: ["embedded","iot"], icon: "wifi", alt: true, link: "", features: [], placeholder: true }
+  ],
+  filters: [ ["all","All"], ["electronics","Electronics"], ["embedded","Embedded Systems"], ["iot","IoT"] ],
+  achievements: [
+    // Add items like: { title: "Certificate name", org: "Issuing organization", date: "Mon YYYY", link: "https://..." }
+  ],
+  interests: [
+    { t: "Embedded Systems", icon: "chip" }, { t: "Internet of Things (IoT)", icon: "wifi" },
+    { t: "Electronics and Circuit Design", icon: "cpu" }, { t: "Wireless Communication", icon: "signal" },
+    { t: "Emerging Technologies", icon: "spark" }, { t: "Continuous Learning", icon: "book" }
+  ]
+};
+
+/* ---------- Icons ---------- */
+const ICONS = {
+  arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>', up:'<path d="M12 19V5M5 12l7-7 7 7"/>',
+  menu:'<path d="M4 7h16M4 12h16M4 17h16"/>', x:'<path d="M6 6l12 12M18 6L6 18"/>',
+  download:'<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  pin:'<path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>',
+  building:'<path d="M4 21V5l8-2 8 2v16M9 9h2M13 9h2M9 13h2M13 13h2M10 21v-4h4v4"/>',
+  cpu:'<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+  chip:'<rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/>',
+  code:'<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+  users:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 1.7 4 4"/>',
+  wifi:'<path d="M2 9a15 15 0 0 1 20 0M5 13a10 10 0 0 1 14 0M8.5 16.5a5 5 0 0 1 7 0M12 20h.01"/>',
+  signal:'<path d="M12 12v9M8 21h8"/><circle cx="12" cy="9" r="2"/><path d="M7.5 4.5a6.4 6.4 0 0 0 0 9M16.5 4.5a6.4 6.4 0 0 1 0 9M4.5 2a10 10 0 0 0 0 14M19.5 2a10 10 0 0 1 0 14"/>',
+  spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>',
+  book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M19 19v2H6"/>',
+  drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M12 14v4"/>',
+  board:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="12" r="1.5"/><path d="M12 9h6M12 12h6M12 15h4"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',
+  link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+  phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+  linkedin:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-7M12 13c0-2 1.5-3 3-3s3 1 3 3v4"/>',
+  github:'<path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.8-2.3c2.8-.3 5.8-1.4 5.8-6.2a4.8 4.8 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.7 11.7 0 0 0-6.2 0C6.6 2.6 5.6 2.9 5.6 2.9a4.4 4.4 0 0 0-.1 3.3A4.8 4.8 0 0 0 4.2 9.5c0 4.8 3 5.9 5.8 6.2A3 3 0 0 0 9.2 18V21"/>'
+};
+const ico = n => `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]||''}</svg>`;
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=ICONS[el.dataset.icon]||'';el.setAttribute('aria-hidden','true')});
+
+/* ---------- Render: status, skills ---------- */
+document.getElementById('statusLabel').textContent = CONFIG.statusLabel;
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.getElementById('skillsGrid').innerHTML = DATA.skills.map(g=>`
+  <article class="card reveal"><h3><span class="ic">${ico(g.icon)}</span>${esc(g.title)}</h3>
+  <div class="tags">${g.items.map(i=>`<span class="chip">${esc(i)}</span>`).join('')}</div></article>`).join('');
+
+/* ---------- Projects + filters ---------- */
+const filtersEl = document.getElementById('filters');
+const gridEl = document.getElementById('projectGrid');
+filtersEl.innerHTML = DATA.filters.map(([k,l],i)=>`<button type="button" data-f="${k}" aria-pressed="${i===0}">${l}</button>`).join('');
+
+function renderProjects(f='all'){
+  const list = DATA.projects.filter(p=>f==='all'||p.categories.includes(f));
+  gridEl.innerHTML = list.map(p=>`
+    <article class="card proj reveal in">
+      <div class="art ${p.alt?'alt':''}" role="img" aria-label="${esc(p.title)} illustration">${ico(p.icon).replace('class="icon"','class="icon" style="width:84px;height:84px;stroke-width:1.2"')}</div>
+      <div class="body">
+        <h3>${esc(p.title)}</h3>
+        <p>${esc(p.desc)}</p>
+        <div class="tags">${p.tags.map(t=>`<span class="chip ${p.placeholder?'ph':''}">${esc(t)}</span>`).join('')}</div>
+        <button class="pill dark btn-d" type="button" data-id="${p.id}">View Details ${ico('arrow')}</button>
+      </div>
+    </article>`).join('') || '<p>No projects in this category yet.</p>';
+}
+renderProjects();
+filtersEl.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-f]'); if(!b) return;
+  filtersEl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  renderProjects(b.dataset.f);
+});
+
+/* ---------- Project dialog ---------- */
+const dlg = document.getElementById('projDialog'), dBody = document.getElementById('dBody');
+gridEl.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-id]'); if(!b) return;
+  const p=DATA.projects.find(x=>x.id===b.dataset.id);
+  const feats = p.features.length ? `<span class="label">Features</span><ul>${p.features.map(f=>`<li><span>${esc(f.text)}</span><span class="chip ${f.done?'ok':'ph'}" style="white-space:nowrap">${f.done?'Completed':'To confirm'}</span></li>`).join('')}</ul>` : '<p class="chip ph" style="justify-self:start">[Add project features]</p>';
+  const link = p.link ? `<a class="pill dark" style="justify-self:start" href="${esc(p.link)}" target="_blank" rel="noopener">View project ${ico('arrow')}</a>` : `<span class="chip ph" style="justify-self:start">[Add GitHub or Demonstration Link]</span>`;
+  dBody.innerHTML = `<h3 id="dTitle">${esc(p.title)}</h3><p>${esc(p.desc)}</p>
+    <div class="tags">${p.tags.map(t=>`<span class="chip ${p.placeholder?'ph':''}">${esc(t)}</span>`).join('')}</div>
+    ${feats}${p.note?`<p class="note" style="margin:0">${esc(p.note)}</p>`:''}${link}`;
+  dlg.showModal();
+});
+document.getElementById('dClose').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
+
+/* ---------- Achievements ---------- */
+const achWrap = document.getElementById('achWrap');
+if(!DATA.achievements.length){
+  achWrap.innerHTML = '<div class="ach-empty">My achievements and certifications will be updated as I continue my learning journey.</div>';
+}else{
+  achWrap.innerHTML = '<div class="grid ach-list">'+DATA.achievements.map(a=>`
+    <article class="card"><span class="label">${esc(a.date||'')}</span><h3 style="font-family:var(--display);margin:6px 0">${esc(a.title)}</h3><p>${esc(a.org||'')}</p>
+    ${a.link?`<a class="pill" style="margin-top:14px" href="${esc(a.link)}" target="_blank" rel="noopener">View certificate ${ico('arrow')}</a>`:''}</article>`).join('')+'</div>';
+}
+
+/* ---------- Interests ---------- */
+document.getElementById('interestGrid').innerHTML = DATA.interests.map(i=>`<div class="card reveal"><span class="ic">${ico(i.icon)}</span>${esc(i.t)}</div>`).join('');
+
+/* ---------- Resume ---------- */
+document.getElementById('resumeSkills').textContent = DATA.skills.flatMap(g=>g.items).slice(0,9).join(', ');
+document.getElementById('resumeProjects').textContent = DATA.projects.filter(p=>!p.placeholder).map(p=>p.title).join(', ') || 'To be added';
+document.getElementById('resumeAch').textContent = DATA.achievements.length ? DATA.achievements.map(a=>a.title).join(', ') : 'To be added as they are earned';
+const resumeBtn = document.getElementById('resumeBtn'), resumeHint = document.getElementById('resumeHint');
+if(CONFIG.resumeUrl){
+  resumeBtn.href = CONFIG.resumeUrl; resumeBtn.setAttribute('download',''); resumeHint.textContent = 'PDF';
+}else{
+  resumeBtn.setAttribute('aria-disabled','true'); resumeBtn.removeAttribute('href');
+  resumeHint.textContent = 'Resume PDF not added yet. Add it to the assets folder and set CONFIG.resumeUrl.';
+  resumeBtn.addEventListener('click',e=>e.preventDefault());
+}
+document.querySelectorAll('.js-resume').forEach(a=>{
+  if(CONFIG.resumeUrl){ a.href = CONFIG.resumeUrl; a.setAttribute('download',''); }
+});
+
+/* ---------- Contact info + footer social ---------- */
+const contacts = [
+  ['mail','Email',CONFIG.email, CONFIG.email && 'mailto:'+CONFIG.email, '[Add email address]'],
+  ['linkedin','LinkedIn',CONFIG.linkedin, CONFIG.linkedin, '[Add LinkedIn profile]'],
+  ['github','GitHub',CONFIG.github, CONFIG.github, '[Add GitHub profile]'],
+  ['phone','Phone',CONFIG.phone, CONFIG.phone && 'tel:'+CONFIG.phone.replace(/\s/g,''), '[Add phone number (optional)]']
+];
+document.getElementById('contactList').innerHTML = contacts.map(([i,l,v,h,ph])=>`
+  <div class="card"><span class="ic">${ico(i)}</span><div><span class="label">${l}</span>
+  ${v?`<a class="val" href="${esc(h)}" ${h.startsWith('http')?'target="_blank" rel="noopener"':''}>${esc(v)}</a>`:`<span class="val empty">${ph}</span>`}</div></div>`).join('');
+const social = contacts.filter(c=>c[2] && c[0]!=='phone');
+document.getElementById('footSocial').innerHTML = social.length ? social.map(c=>`<li><a href="${esc(c[3])}" ${c[3].startsWith('http')?'target="_blank" rel="noopener"':''}>${c[1]}</a></li>`).join('') : '<li style="color:#8a90a6">Social links coming soon</li>';
+
+/* ---------- Contact form (never fakes success) ---------- */
+const form = document.getElementById('contactForm'), fStatus = document.getElementById('formStatus');
+const setStatus=(t,k)=>{fStatus.className='status-msg show '+k;fStatus.textContent=t};
+function validate(){
+  let ok=true;
+  form.querySelectorAll('.f').forEach(f=>{
+    const el=f.querySelector('input,textarea'), err=f.querySelector('.err'); let m='';
+    const v=el.value.trim();
+    if(!v) m='This field is required.';
+    else if(el.type==='email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) m='Enter a valid email address.';
+    else if(el.name==='message' && v.length<10) m='Please write at least 10 characters.';
+    f.classList.toggle('invalid',!!m); err.textContent=m; if(m) ok=false;
+  });
+  return ok;
+}
+form.addEventListener('submit',async e=>{
+  e.preventDefault(); fStatus.className='status-msg';
+  if(!validate()){ setStatus('Please fix the highlighted fields and try again.','bad'); form.querySelector('.invalid input,.invalid textarea')?.focus(); return; }
+  const data = Object.fromEntries(new FormData(form).entries());
+  if(CONFIG.formEndpoint){
+    const btn=document.getElementById('sendBtn'); btn.disabled=true; setStatus('Sending…','info');
+    try{
+      const r=await fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+      if(!r.ok) throw new Error('Request failed');
+      setStatus('Thank you! Your message has been sent.','ok'); form.reset();
+    }catch(err){ setStatus('Sorry, your message could not be sent. Please try again later or contact me directly.','bad'); }
+    finally{ btn.disabled=false; }
+  }else if(CONFIG.email){
+    const url=`mailto:${CONFIG.email}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(data.message+'\n\n— '+data.name+' ('+data.email+')')}`;
+    setStatus('Opening your email app. Please press send there to deliver your message.','info'); window.location.href=url;
+  }else{
+    setStatus('The contact form is not connected yet, so nothing was sent. Set CONFIG.formEndpoint or CONFIG.email to enable it.','bad');
+  }
+});
+
+/* ---------- Nav behaviour ---------- */
+const nav=document.getElementById('nav'), links=document.getElementById('links'), menuBtn=document.getElementById('menuBtn');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+menuBtn.addEventListener('click',()=>{
+  const open=links.classList.toggle('open'); menuBtn.setAttribute('aria-expanded',open);
+  menuBtn.querySelector('svg').innerHTML = ICONS[open?'x':'menu'];
+});
+links.addEventListener('click',e=>{ if(e.target.tagName==='A'){ links.classList.remove('open'); menuBtn.setAttribute('aria-expanded',false); menuBtn.querySelector('svg').innerHTML=ICONS.menu; }});
+addEventListener('keydown',e=>{ if(e.key==='Escape') links.classList.remove('open'); });
+
+const secs=[...document.querySelectorAll('main section[id]')], navLinks=[...links.querySelectorAll('a')];
+const spy=new IntersectionObserver(es=>es.forEach(en=>{
+  if(en.isIntersecting){ navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id)); }
+}),{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>spy.observe(s));
+
+/* ---------- Reveal on scroll ---------- */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} }),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>{ reduce ? el.classList.add('in') : io.observe(el); });
+
+/* ---------- Portrait fallback ---------- */
+const pImg=document.getElementById('portraitImg'), pPh=document.getElementById('portraitPh');
+pImg.addEventListener('error',()=>{ pImg.style.display='none'; pPh.classList.add('show'); });
+</script>
+</body>
+</html>
